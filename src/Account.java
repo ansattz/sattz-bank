@@ -1,8 +1,8 @@
 
-// Testing objects composition
-public class Account { // my class and my attributes
+
+public class Account {
 	// this class has private attributes [encapsulation]
-   private Client holder;
+   private Client holder; // Testing objects composition
    private int agency;
    private int number;
    private double balance;

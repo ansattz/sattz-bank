@@ -19,6 +19,8 @@ public class Program {
 				+ "account now " + marcus.getBalance());
 		System.out.println("Balance on douglas's "
 				+ "account now " + douglas.getBalance());
+		
+		System.out.println("The number of accounts created: " + Account.getTotal());
 
 	}
 }
