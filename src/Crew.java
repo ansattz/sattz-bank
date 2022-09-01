@@ -7,7 +7,12 @@ public class Crew {
 		henrique.setSalary(1800);
 		ricardo.setSalary(2500);
 		
+		Manager mario = new Manager();
+		mario.setPassword(209040);
 		
+		System.out.println(mario.verify(209042));
+		System.out.println(mario.verify(209040));
+
 /*		System.out.println("Henrique's salary is "
 				+ henrique.getSalary());
 		
