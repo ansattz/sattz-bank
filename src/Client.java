@@ -1,6 +1,6 @@
 
 public class Client {
-	String name;
-	String cpf;
-	String career;
+   String name;
+   String cpf;
+   String career;
 }
