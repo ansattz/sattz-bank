@@ -4,7 +4,8 @@ public class Employee {
    private String cpf;
    protected double salary;
    // public for child class
-   // only child class of Employee can access this as public
+   // only child class of Employee can
+   // access this as public
 
    public double salaryBonus() {
       return this.salary * 0.1;
