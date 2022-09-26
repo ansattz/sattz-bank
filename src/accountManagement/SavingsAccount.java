@@ -17,4 +17,9 @@ public class SavingsAccount extends Account {
       // we'll use super to use the original method
       // from the Account class.
    }
+
+   @Override
+   public void deposit(double value) {
+      this.balance += value;
+   }
 }
