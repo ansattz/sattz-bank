@@ -44,8 +44,7 @@ public class Account {
       // this method has 2 arguments: the value of the transference,
       // and the account that will receive the
       // money
-      if (this.balance >= value) {
-         this.balance -= value;
+      if (this.withdraw(value)) {
          toReceive.deposit(value);
          return true;
       } else {
