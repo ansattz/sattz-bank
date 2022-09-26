@@ -1,16 +1,22 @@
 package crewManagement;
 
-public class Employee {
+public abstract class Employee {
+   // with the abstract i'm forcing this
+   // class to be just a concept to be applied
+   // to derived classes.
+   // the compiled does not allow instantiating
+   // an object of this class.
    private String name;
    private String cpf;
    protected double salary;
-   // public for child class
+   // protected: public for child classes;
    // only child class of Employee can
    // access this as public
 
-   public double salaryBonus() {
-      return this.salary * 0.1;
-   }
+   public abstract double salaryBonus();
+   // this method has no implementation
+   // abstract method defines only the signature
+   // (visibility, return, method name and parameters).
 
    public String getName() {
       return name;
