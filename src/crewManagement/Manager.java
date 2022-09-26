@@ -20,7 +20,7 @@ public class Manager extends Employee {
 
    public double salaryBonus() {
       System.out.println("Manager received");
-      return super.salaryBonus() + super.getSalary();
+      return super.getSalary();
       // super: specifies that the attribute salary
       // is from the Employee class
    }
