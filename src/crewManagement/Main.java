@@ -1,5 +1,6 @@
+package crewManagement;
 
-public class Crew {
+public class Main {
 
    public static void main(String[] args) {
       Employee henrique = new Employee();

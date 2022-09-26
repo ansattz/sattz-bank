@@ -1,4 +1,5 @@
-// Employee greater than Manager 
+package crewManagement;
+
 public class Manager extends Employee {
    private int password;
 

@@ -1,3 +1,4 @@
+package accountManagement;
 
 public class Account {
    // this class has private attributes [encapsulation]
@@ -8,6 +9,7 @@ public class Account {
    private static int total;
 
    public Account(int agency, int number) {
+      // constructor
       // to create an object(an account)
       // the object must have two entries.
       total++; // static attribute that will count the number of accounts created
