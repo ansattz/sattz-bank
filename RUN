@@ -1,0 +1,36 @@
+#!/bin/bash
+jtree(){
+   echo -e "\n  ::: Project tree :::\n"
+   tree $PWD
+}
+
+if [ -d "bin" ]; then
+   cd bin/
+   find ../src/ -type f -name "*.java" > sources.txt
+   javac -d ./ @sources.txt
+   mv sources.txt .sources.txt 
+   jtree
+   echo -n "Package: "
+   read pkg
+   echo -n "Classname: "
+   read class
+   echo ""
+   java -cp $PWD $pkg.$class
+   mv .sources.txt sources.txt
+   cd ../
+else
+   mkdir bin
+   cd bin/
+   find ../src/ -type f -name "*.java" > sources.txt
+   javac -d ./ @sources.txt
+   mv sources.txt .sources.txt 
+   jtree
+   echo -n "Package: "
+   read pkg
+   echo -n "Classname: "
+   read class
+   echo ""
+   java -cp $PWD $pkg.$class
+   mv .sources.txt sources.txt
+   cd ../
+fi
