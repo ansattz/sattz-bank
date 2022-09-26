@@ -40,16 +40,17 @@ public class Account {
       }
    }
 
-   public boolean transfer(double value, Account toTransfer, Account toReceive) {
-      // this method has 3 arguments: the value of the transference,
-      // the account that will send the money and the account that will receive the
+   public boolean transfer(double value, Account toReceive) {
+      // this method has 2 arguments: the value of the transference,
+      // and the account that will receive the
       // money
-      if (toTransfer.balance >= value) {
-         toTransfer.balance -= value;
+      if (this.balance >= value) {
+         this.balance -= value;
          toReceive.deposit(value);
          return true;
+      } else {
+         return false;
       }
-      return false;
    }
 
    public double getBalance() {
