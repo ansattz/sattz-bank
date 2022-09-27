@@ -8,6 +8,7 @@ public abstract class Employee {
    // an object of this class.
    private String name;
    private String cpf;
+   private int password;
    protected double salary;
    // protected: public for child classes;
    // only child class of Employee can
@@ -17,6 +18,18 @@ public abstract class Employee {
    // this method has no implementation
    // abstract method defines only the signature
    // (visibility, return, method name and parameters).
+
+   public void setPassword(int password) {
+      this.password = password;
+   }
+
+   public boolean verify(int password) {
+      if (this.password == password) {
+         return true;
+      } else {
+         return false;
+      }
+   }
 
    public String getName() {
       return name;

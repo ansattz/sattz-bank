@@ -1,23 +1,6 @@
 package crewManagement;
 
-public class Manager extends Employee {
-   private int password;
-
-   public void setPassword(int password) {
-      // setter password
-      this.password = password;
-   }
-
-   public boolean verify(int password) {
-      // bolean method ill verify the output of
-      // the setter setPassword method
-      if (this.password == password) {
-         return true;
-      } else {
-         return false;
-      }
-   }
-
+public class Manager extends EmployeeVerify{
    public double salaryBonus() {
       System.out.println("Manager received");
       return super.getSalary();
