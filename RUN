@@ -3,7 +3,9 @@ jtree(){
    echo -e "\n  ::: Project tree :::\n"
    tree $PWD
 }
-
+if ! command -v tree &> /dev/null;then
+   yes | sudo pacman -S tree
+fi
 if [ -d "bin" ]; then
    cd bin/
    find ../src/ -type f -name "*.java" > sources.txt
