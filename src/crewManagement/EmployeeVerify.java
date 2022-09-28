@@ -7,18 +7,11 @@ public abstract class EmployeeVerify extends Employee {
       this.password = password;
    }
 
-   public boolean verify(int password)  {
+   public boolean verify(int password) {
       if (this.password == password) {
          return true;
       } else {
          return false;
       }
-   }
-
-   
-   
-   @Override
-   public double salaryBonus() {
-      return 0;
    }
 }
