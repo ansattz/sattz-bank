@@ -2,9 +2,6 @@ package accountManagement;
 
 public class Main {
    public static void main(String[] args) {
-      Account douglas = new Account(1337, 59382);
-      Account marcus = new Account(1233, 59430);
-
       CheckingAccount corrente = new CheckingAccount(121, 213);
       corrente.deposit(500);
 
