@@ -15,8 +15,19 @@ jtree(){
    mv .sources.txt sources.txt
    cd ../
 }
-if ! command -v tree &> /dev/null;then
-   yes | sudo pacman -S tree
+os=$(grep -E '^(PRETTY_NAME|NAME)=' /etc/os-release)
+if [[ $os == *'Arch'* ]] || [[ $os == *'Parabola'* ]]; then
+   if ! command -v tree &> /dev/null;then
+      yes | sudo pacman -S tree
+   fi
+elif [[ $os == *'Ubuntu'* ]] || [[ $os == *'Debian'* ]]; then
+   if ! command -v tree &> /dev/null;then
+      sudo apt-get install tree
+   fi
+elif [[ $os == *'Fedora'* ]]; then
+   if ! command -v tree &> /dev/null;then
+      sudo dnf install tree
+   fi
 fi
 if [ -d "bin" ]; then
    jtree
