@@ -3,11 +3,24 @@ package crewManagement;
 public class Main {
 
    public static void main(String[] args) {
-      Manager mario = new Manager();
-      Programmer douglas = new Programmer();
-      CrewSystem sys = new CrewSystem();
+      Admin Douglas = new Admin();
+      Manager Junior = new Manager();
+      Client Mario = new Client();
 
-      mario.setPassword(2022);
-      sys.verify(mario);
+      AuthSystem sys = new AuthSystem();
+      Douglas.setPassword(2022);
+      Mario.setPassword(1337);
+      Junior.setPassword(2019);
+
+      sys.verify(Douglas);
+      sys.verify(Mario);
+      sys.verify(Junior);
+
+      // Only Douglas was authenticated.
+
+      System.out.println(Douglas.verify(2000));
+      // check Douglas's password (false)
+      System.out.println(Mario.verify(1337));
+      // check Mario's password (true)
    }
 }
