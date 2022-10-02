@@ -1,15 +1,12 @@
 package crewManagement;
 
-public class Admin extends Employee implements Auth {
+public class Client implements Auth {
+   // a class can use implements to use
+   // multiple interfaces.
    private AuthComp comp;
 
-   public Admin() {
+   public Client() {
       this.comp = new AuthComp();
-   }
-
-   @Override
-   public double salaryBonus() {
-      return 445;
    }
 
    @Override
