@@ -1,6 +1,8 @@
 package accountManagement;
 
-public class CheckingAccount extends Account {
+import taxManagement.Tax;
+
+public class CheckingAccount extends Account implements Tax {
 
    public CheckingAccount(int agency, int number) {
       super(agency, number);
@@ -8,7 +10,8 @@ public class CheckingAccount extends Account {
 
    @Override
    public boolean withdraw(double value) {
-      return super.withdraw(value);
+      double valueToGet = value + 0.2;
+      return super.withdraw(valueToGet);
    }
 
    @Override
@@ -18,4 +21,8 @@ public class CheckingAccount extends Account {
       super.balance += value;
    }
 
+   @Override
+   public double getTaxValue() {
+      return super.balance * 0.02;
+   }
 }
