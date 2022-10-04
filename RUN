@@ -1,5 +1,5 @@
 #!/bin/bash
-jtree(){
+jcomp(){
    cd bin/
    find ../src/ -type f -name "*.java" > sources.txt
    javac -d ./ @sources.txt
@@ -13,6 +13,12 @@ jtree(){
    echo ""
    java -cp $PWD $pkg.$class
    mv .sources.txt sources.txt
+   cd ../
+}
+jdoc(){
+   cd doc/
+   find ../src/ -type f -name "*.java" > sources.txt
+   javadoc -d ./ @sources.txt
    cd ../
 }
 os=$(grep -E '^(PRETTY_NAME|NAME)=' /etc/os-release)
@@ -29,9 +35,15 @@ elif [[ $os == *'Fedora'* ]]; then
       sudo dnf install tree
    fi
 fi
+if [ -d "doc" ]; then
+   jdoc
+else
+   mkdir doc
+   jdoc
+fi
 if [ -d "bin" ]; then
-   jtree
+   jcomp
 else
    mkdir bin
-   jtree
+   jcomp
 fi
