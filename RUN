@@ -4,7 +4,7 @@ jcomp(){
    find ../src/ -type f -name "*.java" > sources.txt
    javac -d ./ @sources.txt
    mv sources.txt .sources.txt 
-   echo -e "\n  ::: Project tree :::\n"
+   echo -e "\n ::: Project tree :::\n"
    tree
    echo -n "Package: "
    read pkg
@@ -19,7 +19,23 @@ jdoc(){
    cd doc/
    find ../src/ -type f -name "*.java" > sources.txt
    javadoc -d ./ @sources.txt
+   echo -e "\n ::: Open documentation? :::\n"
+   select op in "Yes" "No"; do
+      case $op in
+         Yes )
+            xdg-open index.html
+            echo -e "\n"
+            break;;
+         No )
+            break;;
+      esac
+   done
    cd ../
+}
+jjar(){
+   echo "Main-Class: accountManagement.Main" > manifest.mf
+   jar -cvmf manifest.mf sattzbank.jar -C bin .
+   rm manifest.mf
 }
 os=$(grep -E '^(PRETTY_NAME|NAME)=' /etc/os-release)
 if [[ $os == *'Arch'* ]] || [[ $os == *'Parabola'* ]]; then
@@ -35,15 +51,13 @@ elif [[ $os == *'Fedora'* ]]; then
       sudo dnf install tree
    fi
 fi
-if [ -d "doc" ]; then
+jjar
+if [ -d "doc" ] || [ -d "bin" ]; then
    jdoc
-else
-   mkdir doc
-   jdoc
-fi
-if [ -d "bin" ]; then
    jcomp
 else
+   mkdir doc
    mkdir bin
+   jdoc
    jcomp
 fi
