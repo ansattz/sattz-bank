@@ -51,13 +51,14 @@ elif [[ $os == *'Fedora'* ]]; then
       sudo dnf install tree
    fi
 fi
-jjar
 if [ -d "doc" ] || [ -d "bin" ]; then
+   jjar
    jdoc
    jcomp
 else
    mkdir doc
    mkdir bin
+   jjar
    jdoc
    jcomp
 fi
